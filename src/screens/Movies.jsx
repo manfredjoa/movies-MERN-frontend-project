@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getMovies } from "../services/movies.js";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Movie from "../components/Movie.jsx";
 
 export default function Movies() {
@@ -17,9 +17,9 @@ export default function Movies() {
 
   return (
     <div>
-      <Link to="/">
+      {/* <Link to="/">
         <h1>Home</h1>
-      </Link>
+      </Link> */}
       <h1>Movies</h1>
       {movies.map((movie) => (<Movie key={movie._id} movie={movie} />))}
     </div>
