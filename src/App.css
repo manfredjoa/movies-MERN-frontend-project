@@ -1,1 +1,15 @@
+* {
+  text-align: center;
+}
 
+.all-movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.movie-poster {
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+}
