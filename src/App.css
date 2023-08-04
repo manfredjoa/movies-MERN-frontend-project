@@ -8,8 +8,10 @@ h1 {
   font-family: "Undeveloped Book", sans-serif;
   font-size: 50px;
   color: goldenrod;
-  left: 0;
-  right: 0;
+}
+
+h2 {
+  font-size: 18px;
 }
 
 .all-movies {
@@ -59,7 +61,7 @@ height: 100%
   outline: none;
 }
 
-button {
+#x {
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
   width: 30px; 
