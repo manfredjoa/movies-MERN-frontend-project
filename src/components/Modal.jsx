@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { updateMovie, deleteMovie } from "../services/movies.js"
 
-export default function Modal({ movie, setMovie, closeModal, closeModalKeyDown }) {
+export default function Modal({ movie, setMovie, setToggle, closeModal, closeModalKeyDown }) {
   const [update, setUpdate] = useState(false)
   const ref = useRef(null)
 
@@ -11,6 +11,7 @@ export default function Modal({ movie, setMovie, closeModal, closeModalKeyDown }
 
   const handleDelete = async () => {
     await deleteMovie(movie._id)
+    setToggle(prevToggle => !prevToggle)
     closeModal()
   }
 
@@ -29,7 +30,14 @@ export default function Modal({ movie, setMovie, closeModal, closeModalKeyDown }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    movie.Genre = Array.isArray(movie.Genre) ? movie.Genre : movie.Genre.split(",").map((index) => index.trim())
+    movie.Director = Array.isArray(movie.Director) ? movie.Director  : movie.Director.split(",").map((index) => index.trim())
+    movie.Writer = Array.isArray(movie.Writer) ? movie.Writer : movie.Writer.split(",").map((index) => index.trim())
+    movie.Actors = Array.isArray(movie.Actors) ? movie.Actors : movie.Actors.split(",").map((index) => index.trim())
+    movie.Language = Array.isArray(movie.Language) ? movie.Language : movie.Language.split(",").map((index) => index.trim())
+    movie.Country = Array.isArray(movie.Country) ? movie.Country : movie.Country.split(",").map((index) => index.trim())
     await updateMovie(movie._id, movie);
+    setToggle(prevToggle => !prevToggle)
     setUpdate(false);
   }
 
@@ -214,13 +222,13 @@ export default function Modal({ movie, setMovie, closeModal, closeModalKeyDown }
             <p className="modal-text">Rating: {movie.Rated}</p>
             <p className="modal-text">Released: {movie.Released.slice(0,10)}</p>
             <p className="modal-text">Runtime: {movie.Runtime}</p>
-            <p className="modal-text">Genre(s): {movie.Genre}</p>
-            <p className="modal-text">Director(s): {movie.Director}</p>
-            <p className="modal-text">Writer(s): {movie.Writer}</p>
+            <p className="modal-text">Genre(s): {movie.Genre.join(", ")}</p>
+            <p className="modal-text">Director(s): {movie.Director.join(", ")}</p>
+            <p className="modal-text">Writer(s): {movie.Writer.join(", ")}</p>
             <p className="modal-text">Actors: {movie.Actors}</p>
             <p className="modal-text">Plot: {movie.Plot}</p>
-            <p className="modal-text">Language(s): {movie.Language}</p>
-            <p className="modal-text">Countries: {movie.Country}</p>
+            <p className="modal-text">Language(s): {movie.Language.join(", ")}</p>
+            <p className="modal-text">Countries: {movie.Country.join(", ")}</p>
             <p className="modal-text">Awards: {movie.Awards}</p>
             <p className="modal-text">Box Office: {movie.BoxOffice}</p>
             <p className="modal-text">IMDb ID: {movie.imdbID}</p>

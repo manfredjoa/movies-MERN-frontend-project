@@ -7,10 +7,11 @@ export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [modal, setModal] = useState(false)
   const [oneMovie, setOneMovie] = useState({})
+  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     fetchMovies()
-  }, [modal, movies])
+  }, [toggle])
   
   async function fetchMovies() {
     const allMovies = await getMovies();
@@ -39,7 +40,7 @@ export default function Movies() {
       <div className="all-movies">
         {movies.map((movie) => (<Movie key={movie._id} movie={movie} showModal={showModal} />))}
       </div>
-      {modal ? <Modal movie={oneMovie} setMovie={setOneMovie} closeModal={closeModal} closeModalKeyDown={closeModalKeyDown} /> : null }
+      {modal ? <Modal movie={oneMovie} setMovie={setOneMovie} setToggle={setToggle} closeModal={closeModal} closeModalKeyDown={closeModalKeyDown} /> : null }
     </div>
   )
 }
