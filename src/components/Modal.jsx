@@ -80,6 +80,9 @@ export default function Modal({ movie, setMovie, closeModal, closeModalKeyDown }
             <p className="modal-text">Title: {movie.Title}</p>
             <p className="modal-text">Year: {movie.Year}</p>
             <p className="modal-text">Rating: {movie.Rated}</p>
+            <p className="modal-text">Released: {movie.Released.slice(0,10)}</p>
+            <p className="modal-text">Runtime: {movie.Runtime}</p>
+            <p className="modal-text">Genre: {movie.Genre}</p>
             <button onClick={handleDelete}>DELETE</button>
             <button onClick={handleUpdate}>EDIT</button> 
           </div>
