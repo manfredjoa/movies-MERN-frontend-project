@@ -9,14 +9,14 @@ export const getMovies = async () => {
   }
 };
 
-export const createMovie = async (movieData) => {
-  try {
-    const response = await api.post("/movies/add", movieData);
-    return response.data;
-  } catch (error) {
-    console.log("Error: Creating movie.", error);
-  }
-};
+// export const createMovie = async (movieData) => {
+//   try {
+//     const response = await api.post("/movies/add", movieData);
+//     return response.data;
+//   } catch (error) {
+//     console.log("Error: Creating movie.", error);
+//   }
+// };
 
 export const updateMovie = async (id, movieData) => {
   try {
