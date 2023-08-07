@@ -28,13 +28,11 @@ export default function MovieCreate() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    movie.Genre = movie.Genre.split(",").map((index) => index.trim())
-    movie.Director = movie.Director.split(",").map((index) => index.trim())
-    movie.Writer = movie.Writer.split(",").map((index) => index.trim())
-    movie.Actors = movie.Actors.split(",").map((index) => index.trim())
-    movie.Language = movie.Language.split(",").map((index) => index.trim())
-    movie.Country = movie.Country.split(",").map((index) => index.trim())
-    movie.Stills = movie.Stills.split(",").map((index) => index.trim())
+    movie.Genre = Array.isArray(movie.Genre) ? movie.Genre : movie.Genre.split(",").map((index) => index.trim())
+    movie.Director = Array.isArray(movie.Director) ? movie.Director : movie.Director.split(",").map((index) => index.trim())
+    movie.Writer = Array.isArray(movie.Writer) ? movie.Writer : movie.Writer.split(",").map((index) => index.trim())
+    movie.Actors = Array.isArray(movie.Actors) ? movie.Actors : movie.Actors.split(",").map((index) => index.trim())
+    movie.Stills = Array.isArray(movie.Stills) ? movie.Stills : movie.Stills.split(",").map((index) => index.trim())
     await createMovie(movie)
     navigate("/movies")
   }
@@ -162,28 +160,6 @@ export default function MovieCreate() {
             name="Plot"
             placeholder="Plot"
             value={movie.Plot}
-            onChange={handleChange}
-          />
-        </label>
-        <label className="create-form-label">
-          Language: 
-          <input
-            className="create-form-input"
-            type="text"
-            name="Language"
-            placeholder="Language(s)"
-            value={movie.Language}
-            onChange={handleChange}
-          />
-        </label>
-        <label className="create-form-label">
-          Country: 
-          <input
-            className="create-form-input"
-            type="text"
-            name="Country"
-            placeholder="Country/Countries"
-            value={movie.Country}
             onChange={handleChange}
           />
         </label>

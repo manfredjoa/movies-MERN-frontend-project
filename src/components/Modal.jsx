@@ -88,7 +88,7 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   className="update-form-input"
                   type="text"
                   name="Released"
-                  value={movie.Released.slice(0,10)}
+                  value={ movie.Released ? movie.Released.slice(0,10) : "" }
                   onChange={handleChange}
                 />
               </label>
@@ -153,26 +153,6 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                 />
               </label>
               <label>
-                Language: 
-                <input
-                  className="update-form-input"
-                  type="text"
-                  name="Language"
-                  value={movie.Language}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
-                Country: 
-                <input
-                  className="update-form-input"
-                  type="text"
-                  name="Country"
-                  value={movie.Country}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
                 Awards: 
                 <input
                   className="update-form-input"
@@ -206,7 +186,7 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                 IMDb Rating: 
                 <input
                   className="update-form-input"
-                  type="number"
+                  type="text"
                   name="imdbRating"
                   value={movie.imdbRating}
                   onChange={handleChange}
@@ -220,15 +200,13 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
             <p className="modal-text">Title: {movie.Title}</p>
             <p className="modal-text">Year: {movie.Year}</p>
             <p className="modal-text">Rating: {movie.Rated}</p>
-            <p className="modal-text">Released: {movie.Released.slice(0,10)}</p>
+            <p className="modal-text">Released: { movie.Released ? movie.Released.slice(0,10) : "" }</p>
             <p className="modal-text">Runtime: {movie.Runtime}</p>
             <p className="modal-text">Genre(s): {movie.Genre.join(", ")}</p>
             <p className="modal-text">Director(s): {movie.Director.join(", ")}</p>
             <p className="modal-text">Writer(s): {movie.Writer.join(", ")}</p>
-            <p className="modal-text">Actors: {movie.Actors}</p>
+            <p className="modal-text">Actors: {movie.Actors.join(", ")}</p>
             <p className="modal-text">Plot: {movie.Plot}</p>
-            <p className="modal-text">Language(s): {movie.Language.join(", ")}</p>
-            <p className="modal-text">Countries: {movie.Country.join(", ")}</p>
             <p className="modal-text">Awards: {movie.Awards}</p>
             <p className="modal-text">Box Office: {movie.BoxOffice}</p>
             <p className="modal-text">IMDb ID: {movie.imdbID}</p>
