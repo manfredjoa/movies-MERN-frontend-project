@@ -214,9 +214,21 @@ export default function Modal({ movie, setMovie, closeModal, closeModalKeyDown }
             <p className="modal-text">Rating: {movie.Rated}</p>
             <p className="modal-text">Released: {movie.Released.slice(0,10)}</p>
             <p className="modal-text">Runtime: {movie.Runtime}</p>
-            <p className="modal-text">Genre: {movie.Genre}</p>
-            <button onClick={handleUpdate}>EDIT</button> 
-            <button onClick={handleDelete}>DELETE</button>
+            <p className="modal-text">Genre(s): {movie.Genre}</p>
+            <p className="modal-text">Director(s): {movie.Director}</p>
+            <p className="modal-text">Writer(s): {movie.Writer}</p>
+            <p className="modal-text">Actors: {movie.Actors}</p>
+            <p className="modal-text">Plot: {movie.Plot}</p>
+            <p className="modal-text">Language(s): {movie.Language}</p>
+            <p className="modal-text">Countries: {movie.Country}</p>
+            <p className="modal-text">Awards: {movie.Awards}</p>
+            <p className="modal-text">Box Office: {movie.BoxOffice}</p>
+            <p className="modal-text">IMDb ID: {movie.imdbID}</p>
+            <p className="modal-text">IMDb Rating: {movie.imdbRating}</p>
+            <div className="modal-CRUD-buttons">
+              <button onClick={handleUpdate}>EDIT</button> 
+              <button onClick={handleDelete}>DELETE</button>
+            </div>
           </div>
         }
 

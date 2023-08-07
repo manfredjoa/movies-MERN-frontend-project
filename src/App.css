@@ -68,6 +68,11 @@ height: 100%
   justify-content: space-evenly;
 }
 
+.modal-CRUD-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 #add-movie-screen {
   height: 100vh;
 }
