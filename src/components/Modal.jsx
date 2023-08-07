@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { deleteMovie } from "../services/movies.js"
 
 export default function Modal({ movie, closeModal, closeModalKeyDown }) {
@@ -14,9 +14,11 @@ export default function Modal({ movie, closeModal, closeModalKeyDown }) {
     window.location.reload()
   }
 
-  async function handleUpdate() {
-    // update movie function
-    }
+  const [update, setUpdate] = useState(false)
+
+  function handleUpdate() {
+    setUpdate(true);
+  }
 
   return (
     <div>
@@ -25,13 +27,18 @@ export default function Modal({ movie, closeModal, closeModalKeyDown }) {
 
         <img className="modal-image" src={movie.Poster}></img>
 
-        <div>
-          <p className="modal-text">Title: {movie.Title}</p>
-          <p className="modal-text">Year: {movie.Year}</p>
-          <p className="modal-text">Rating: {movie.Rated}</p>
-          <button onClick={handleDelete}>DELETE</button>
-          <button onClick={handleUpdate}>EDIT</button>
-        </div>
+        {update
+          ?
+          <div><p>Editing</p></div>
+          :  
+          <div>
+            <p className="modal-text">Title: {movie.Title}</p>
+            <p className="modal-text">Year: {movie.Year}</p>
+            <p className="modal-text">Rating: {movie.Rated}</p>
+            <button onClick={handleDelete}>DELETE</button>
+            <button onClick={handleUpdate}>EDIT</button> 
+          </div>
+        }
 
         <button id="x" onClick={closeModal}>x</button>
 
