@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react"
 import { deleteMovie } from "../services/movies.js"
 
 export default function Modal({ movie, closeModal, closeModalKeyDown }) {
+  const [update, setUpdate] = useState(false)
+  const [moviee, setMoviee] = useState(null)
   const ref = useRef(null)
   
   useEffect(() => {
@@ -14,10 +16,17 @@ export default function Modal({ movie, closeModal, closeModalKeyDown }) {
     window.location.reload()
   }
 
-  const [update, setUpdate] = useState(false)
-
   function handleUpdate() {
     setUpdate(true);
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setMoviee(prevMovie => ({
+      ...prevMovie,
+      [name]: value
+    }))
   }
 
   return (
@@ -29,7 +38,38 @@ export default function Modal({ movie, closeModal, closeModalKeyDown }) {
 
         {update
           ?
-          <div><p>Editing</p></div>
+          <div className="modal-input-container">
+            <form className="modal-input">
+              <label>
+                Title:
+                <input
+                type="text"
+                name="Title"
+                value={movie.Title}
+                onChange={handleChange}
+                />
+              </label>  
+              <label>
+                Year:
+                <input
+                type="number"
+                name="Year"
+                value={movie.Year}
+                onChange={handleChange}
+                />
+              </label>  
+              <label>
+                Rating:
+                <input
+                type="text"
+                name="Rated"
+                value={movie.Rated}
+                onChange={handleChange}
+                />
+              </label>  
+              <button type="submit">Submit</button>
+            </form>
+          </div>
           :  
           <div>
             <p className="modal-text">Title: {movie.Title}</p>
