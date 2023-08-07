@@ -1,33 +1,38 @@
 import { useEffect, useRef, useState } from "react"
-import { deleteMovie } from "../services/movies.js"
+import { updateMovie, deleteMovie } from "../services/movies.js"
 
-export default function Modal({ movie, closeModal, closeModalKeyDown }) {
+export default function Modal({ movie, setMovie, closeModal, closeModalKeyDown }) {
   const [update, setUpdate] = useState(false)
-  const [moviee, setMoviee] = useState(null)
   const ref = useRef(null)
-  
+
   useEffect(() => {
     ref.current.focus()
   }, [])
 
-  async function handleDelete() {
+  const handleDelete = async () => {
     await deleteMovie(movie._id)
     closeModal()
-    window.location.reload()
   }
 
-  function handleUpdate() {
+  const handleUpdate = () => {
     setUpdate(true);
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target
 
-    setMoviee(prevMovie => ({
+    setMovie(prevMovie => ({
       ...prevMovie,
       [name]: value
     }))
   }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await updateMovie(movie._id, movie);
+    setUpdate(false);
+  }
+
 
   return (
     <div>
@@ -39,32 +44,32 @@ export default function Modal({ movie, closeModal, closeModalKeyDown }) {
         {update
           ?
           <div className="modal-input-container">
-            <form className="modal-input">
+            <form className="modal-input" onSubmit={handleSubmit}>
               <label>
                 Title:
                 <input
-                type="text"
-                name="Title"
-                value={movie.Title}
-                onChange={handleChange}
+                  type="text"
+                  name="Title"
+                  value={movie.Title}  
+                  onChange={handleChange}
                 />
               </label>  
               <label>
                 Year:
                 <input
-                type="number"
-                name="Year"
-                value={movie.Year}
-                onChange={handleChange}
+                  type="number"
+                  name="Year"
+                  value={movie.Year}
+                  onChange={handleChange}
                 />
               </label>  
               <label>
-                Rating:
+                Rated:
                 <input
-                type="text"
-                name="Rated"
-                value={movie.Rated}
-                onChange={handleChange}
+                  type="text"
+                  name="Rated"
+                  value={movie.Rated}
+                  onChange={handleChange}
                 />
               </label>  
               <button type="submit">Submit</button>
