@@ -20,6 +20,7 @@ export default function Movies() {
   const showModal = (movie) => {
     setOneMovie(movie)
     setModal(true)
+    console.log(oneMovie)
   }
 
   const closeModal = () => {
