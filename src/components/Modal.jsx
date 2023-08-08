@@ -168,18 +168,6 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
               </span>
               <span>
                 <label>
-                  Plot: 
-                </label>
-                <input
-                  className="update-form-input"
-                  type="text"
-                  name="Plot"
-                  value={movie.Plot}
-                  onChange={handleChange}
-                />
-              </span>
-              <span>
-                <label>
                   Awards: 
                 </label>
                 <input
@@ -223,6 +211,18 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   type="text"
                   name="imdbRating"
                   value={movie.imdbRating}
+                  onChange={handleChange}
+                />
+              </span>
+              <span>
+                <label>
+                  Plot: 
+                </label>
+                <input
+                  className="update-form-input"
+                  type="text"
+                  name="Plot"
+                  value={movie.Plot}
                   onChange={handleChange}
                 />
               </span>
