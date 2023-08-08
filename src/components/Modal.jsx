@@ -41,6 +41,10 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
     setUpdate(false);
   }
 
+  const handleBack = () => {
+    setUpdate(false);
+  }
+
   return (
     <div>
       <div className="overlay" onClick={closeModal}></div>
@@ -48,12 +52,16 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
 
         <img className="modal-image" src={movie.Poster}></img>
 
+        {update ? <button id="back-button" onClick={handleBack}>BACK</button> : null}
+
         {update
           ?
           <div className="modal-input-container">
             <form className="modal-input" onSubmit={handleSubmit}>
-              <label>
-                Title:
+              <span>
+                <label>
+                  Title:
+                </label> 
                 <input
                   className="update-form-input"
                   type="text"
@@ -61,9 +69,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.Title}  
                   onChange={handleChange}
                 />
-              </label>  
-              <label>
-                Year:
+              </span>
+              <span>
+                <label>
+                  Year:
+                </label>
                 <input
                   className="update-form-input"
                   type="number"
@@ -71,9 +81,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.Year}
                   onChange={handleChange}
                 />
-              </label>  
-              <label>
-                Rated:
+              </span>  
+              <span>
+                <label>
+                  Rated:
+                </label>
                 <input
                   className="update-form-input"
                   type="text"
@@ -81,9 +93,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.Rated}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                Released: 
+              </span>
+              <span>
+                <label>
+                  Released: 
+                </label>
                 <input
                   className="update-form-input"
                   type="text"
@@ -91,9 +105,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={ movie.Released ? movie.Released.slice(0,10) : "" }
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                Runtime: 
+              </span>
+              <span>
+                <label>
+                  Runtime: 
+                </label>
                 <input
                   className="update-form-input"
                   type="number"
@@ -101,9 +117,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.Runtime}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                Genre: 
+              </span>
+              <span>
+                <label>
+                  Genre: 
+                </label>
                 <input
                   className="update-form-input"
                   type="text"
@@ -111,9 +129,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.Genre}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                Director: 
+              </span>
+              <span>
+                <label>
+                  Director: 
+                </label>
                 <input
                   className="update-form-input"
                   type="text"
@@ -121,9 +141,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.Director}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                Writer: 
+              </span>
+              <span>
+                <label>
+                  Writer: 
+                </label>
                 <input
                   className="update-form-input"
                   type="text"
@@ -131,9 +153,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.Writer}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                Actors: 
+              </span>
+              <span>
+                <label>
+                  Actors: 
+                </label>
                 <input
                   className="update-form-input"
                   type="text"
@@ -141,9 +165,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.Actors}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                Plot: 
+              </span>
+              <span>
+                <label>
+                  Plot: 
+                </label>
                 <input
                   className="update-form-input"
                   type="text"
@@ -151,9 +177,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.Plot}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                Awards: 
+              </span>
+              <span>
+                <label>
+                  Awards: 
+                </label>
                 <input
                   className="update-form-input"
                   type="text"
@@ -161,9 +189,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.Awards}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                Box Office: 
+              </span>
+              <span>
+                <label>
+                  Box Office: 
+                </label>
                 <input
                   className="update-form-input"
                   type="number"
@@ -171,9 +201,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.BoxOffice}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                IMDb ID: 
+              </span>
+              <span>
+                <label>
+                  IMDb ID: 
+                </label>
                 <input
                   className="update-form-input"
                   type="text"
@@ -181,9 +213,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.imdbID}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                IMDb Rating: 
+              </span>
+              <span>
+                <label>
+                  IMDb Rating: 
+                </label>
                 <input
                   className="update-form-input"
                   type="text"
@@ -191,8 +225,8 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
                   value={movie.imdbRating}
                   onChange={handleChange}
                 />
-              </label>
-              <button type="submit">Submit</button>
+              </span>
+              <button type="submit" id="submit-update">SUBMIT</button>
             </form>
           </div>
           :  
