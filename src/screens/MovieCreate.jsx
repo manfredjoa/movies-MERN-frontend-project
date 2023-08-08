@@ -51,9 +51,10 @@ export default function MovieCreate() {
       <h1>Add a movie to our Database!</h1>
 
       <form className="create-form" onSubmit={handleSubmit}>
-
-        <label className="create-form-label">
-          Title: 
+        <span>
+          <label className="create-form-label">
+            Title:
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -62,9 +63,11 @@ export default function MovieCreate() {
             value={movie.Title}
             onChange={handleChange}
           />
-        </label>
-        <label className="create-form-label">
-          Year: 
+        </span>
+        <span>
+          <label className="create-form-label">
+            Year: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -73,9 +76,11 @@ export default function MovieCreate() {
             value={movie.Year}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Rated: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -84,9 +89,11 @@ export default function MovieCreate() {
             value={movie.Rated}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Released: 
+          </label>
           <input
             className="create-form-input"
             onFocus={(e) => e.target.type = "date"}
@@ -96,9 +103,11 @@ export default function MovieCreate() {
             value={movie.Released}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Runtime: 
+          </label>
           <input
             className="create-form-input"
             type="number"
@@ -107,9 +116,11 @@ export default function MovieCreate() {
             value={movie.Runtime}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Genre: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -118,9 +129,11 @@ export default function MovieCreate() {
             value={movie.Genre}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Director: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -129,9 +142,11 @@ export default function MovieCreate() {
             value={movie.Director}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Writer: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -140,9 +155,11 @@ export default function MovieCreate() {
             value={movie.Writer}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Actors: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -151,9 +168,11 @@ export default function MovieCreate() {
             value={movie.Actors}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Plot: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -162,9 +181,11 @@ export default function MovieCreate() {
             value={movie.Plot}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Awards: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -173,9 +194,11 @@ export default function MovieCreate() {
             value={movie.Awards}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Poster: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -184,9 +207,11 @@ export default function MovieCreate() {
             value={movie.Poster}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Box Office: 
+          </label>
           <input
             className="create-form-input"
             type="number"
@@ -195,9 +220,11 @@ export default function MovieCreate() {
             value={movie.BoxOffice}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           IMDb ID: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -206,9 +233,11 @@ export default function MovieCreate() {
             value={movie.imdbID}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           IMDb Rating: 
+          </label>
           <input
             className="create-form-input"
             type="number"
@@ -217,9 +246,11 @@ export default function MovieCreate() {
             value={movie.imdbRating}
             onChange={handleChange}
           />
-        </label>
+        </span>
+        <span>
         <label className="create-form-label">
           Stills: 
+          </label>
           <input
             className="create-form-input"
             type="text"
@@ -228,7 +259,7 @@ export default function MovieCreate() {
             value={movie.Stills}
             onChange={handleChange}
           />
-        </label>
+        </span>
 
         <button id="add-movie-submit" type="submit">Add your movie!</button>
       </form>
