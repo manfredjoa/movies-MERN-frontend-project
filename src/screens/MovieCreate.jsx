@@ -119,13 +119,13 @@ export default function MovieCreate() {
         </span>
         <span>
         <label className="create-form-label">
-          Genre: 
+          Genre(s): 
           </label>
           <input
             className="create-form-input"
             type="text"
             name="Genre"
-            placeholder="Genre(s)"
+            placeholder="Genre(s), separated by commas"
             value={movie.Genre}
             onChange={handleChange}
           />
@@ -137,21 +137,21 @@ export default function MovieCreate() {
           <input
             className="create-form-input"
             type="text"
-            name="Director"
-            placeholder="Director(s)"
+            name="Director(s)"
+            placeholder="Director(s), separated by commas"
             value={movie.Director}
             onChange={handleChange}
           />
         </span>
         <span>
         <label className="create-form-label">
-          Writer: 
+          Writer(s): 
           </label>
           <input
             className="create-form-input"
             type="text"
             name="Writer"
-            placeholder="Writer(s)"
+            placeholder="Writer(s), separated by commas"
             value={movie.Writer}
             onChange={handleChange}
           />
@@ -164,21 +164,8 @@ export default function MovieCreate() {
             className="create-form-input"
             type="text"
             name="Actors"
-            placeholder="Actors"
+            placeholder="Actors, separated by commas"
             value={movie.Actors}
-            onChange={handleChange}
-          />
-        </span>
-        <span>
-        <label className="create-form-label">
-          Plot: 
-          </label>
-          <input
-            className="create-form-input"
-            type="text"
-            name="Plot"
-            placeholder="Plot"
-            value={movie.Plot}
             onChange={handleChange}
           />
         </span>
@@ -255,8 +242,21 @@ export default function MovieCreate() {
             className="create-form-input"
             type="text"
             name="Stills"
-            placeholder="Movie still URLs"
+            placeholder="Movie still URLs, separated by commas"
             value={movie.Stills}
+            onChange={handleChange}
+          />
+        </span>
+        <span>
+        <label className="create-form-label">
+          Plot: 
+          </label>
+          <input
+            className="create-form-input"
+            type="text"
+            name="Plot"
+            placeholder="Plot"
+            value={movie.Plot}
             onChange={handleChange}
           />
         </span>
