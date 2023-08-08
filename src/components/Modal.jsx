@@ -230,24 +230,66 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
             </form>
           </div>
           :  
-          <div>
-            <p className="modal-text">Title: {movie.Title}</p>
-            <p className="modal-text">Year: {movie.Year}</p>
-            <p className="modal-text">Rating: {movie.Rated}</p>
-            <p className="modal-text">Released: { movie.Released ? movie.Released.slice(0,10) : "" }</p>
-            <p className="modal-text">Runtime: {movie.Runtime}</p>
-            <p className="modal-text">Genre(s): {movie.Genre.join(", ")}</p>
-            <p className="modal-text">Director(s): {movie.Director.join(", ")}</p>
-            <p className="modal-text">Writer(s): {movie.Writer.join(", ")}</p>
-            <p className="modal-text">Actors: {movie.Actors.join(", ")}</p>
-            <p className="modal-text">Plot: {movie.Plot}</p>
-            <p className="modal-text">Awards: {movie.Awards}</p>
-            <p className="modal-text">Box Office: {movie.BoxOffice}</p>
-            <p className="modal-text">IMDb ID: {movie.imdbID}</p>
-            <p className="modal-text">IMDb Rating: {movie.imdbRating}</p>
+          <div className="modal-text-container">
+            <span>
+              <p className="modal-text-label">Title:</p>
+              <p className="modal-text">{movie.Title}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Year:</p>
+              <p className="modal-text">{movie.Year}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Rated:</p>
+              <p className="modal-text">{movie.Rated}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Released:</p>
+              <p className="modal-text">{ movie.Released ? movie.Released.slice(0,10) : "" }</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Runtime:</p>
+              <p className="modal-text">{movie.Runtime}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Genre(s):</p>
+              <p className="modal-text">{movie.Genre.join(", ")}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Director(s):</p>
+              <p className="modal-text">{movie.Director.join(", ")}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Writer(s):</p>
+              <p className="modal-text">{movie.Writer.join(", ")}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Actors:</p>
+              <p className="modal-text">{movie.Actors.join(", ")}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Awards:</p>
+              <p className="modal-text">{movie.Awards}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Box Office:</p>
+              <p className="modal-text">{movie.BoxOffice}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">IMDb ID:</p>
+              <p className="modal-text">{movie.imdbID}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">IMDb Rating:</p>
+              <p className="modal-text">{movie.imdbRating}</p>
+            </span>
+            <span>
+              <p className="modal-text-label">Plot:</p>
+              <p className="modal-text">{movie.Plot}</p>
+            </span>
             <div className="modal-CRUD-buttons">
-              <button onClick={handleUpdate}>EDIT</button> 
-              <button onClick={handleDelete}>DELETE</button>
+              <button id="edit-button"onClick={handleUpdate}>EDIT</button> 
+              <button id="delete-button"onClick={handleDelete}>DELETE</button>
             </div>
           </div>
         }

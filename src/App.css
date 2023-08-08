@@ -72,14 +72,40 @@ height: 100%
   width: 100%;
 }
 
+.modal-text-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  margin-left: 15px;
+}
+
+p {
+  font-size: 15px;
+}
+
 .modal-text {
   align-self: flex-start;
-  font-size: 15px;
+}
+
+.modal-text-label {
+  width: 120px;
+}
+
+.modal-text, .modal-text-label {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
 }
 
 .modal-CRUD-buttons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  height: 28px;
+}
+
+#edit-button, #delete-button {
+  width: 65px;
 }
 
 #add-movie-screen {
