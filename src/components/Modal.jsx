@@ -5,6 +5,7 @@ import { updateMovie, deleteMovie } from "../services/movies.js"
 export default function Modal({ movie, setMovie, setToggle, closeModal, closeModalKeyDown }) {
   const [update, setUpdate] = useState(false)
   const [stills, setStills] = useState(false)
+  const [displayNone, setDisplayNone] = useState("")
   const ref = useRef(null)
 
   useEffect(() => {
@@ -49,7 +50,7 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
 
   const handleStills = () => {
     setStills(true);
-    console.log(stills)
+    setDisplayNone("none");
   }
 
   return (
@@ -57,7 +58,7 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
       <div className="overlay" onClick={closeModal}></div>
       <div tabIndex={-1} ref={ref} onKeyDown={closeModalKeyDown} className="modal-container">
 
-        <img className="modal-image" src={movie.Poster}></img>
+        <img className="modal-image" src={movie.Poster} style={{display: displayNone}}></img>
 
         {update ? <button id="back-button" onClick={handleBack}>BACK</button> : null}
 
@@ -237,7 +238,7 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
             </form>
           </div>
           :  
-          <div className="modal-text-container">
+          <div className="modal-text-container" style={{display: displayNone}}>
             <span>
               <p className="modal-text-label">Title:</p>
               <p className="modal-text">{movie.Title}</p>
@@ -304,10 +305,24 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
 
         <button id="x" onClick={closeModal}>x</button>
 
-        {/* {stills
-          ? <p>this is working</p>
-          : <p>this is also working</p>
-        } */}
+        {stills // Need to map through the stills of the movie. This is just a placeholder.
+          ?
+          <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+                <img className="d-block w-100" style={{width: "100%"}} src={movie.Stills[0]} alt="First slide" />
+              </div>
+              {/* <div className="carousel-item">
+                <img class="d-block w-100" src="..." alt="Second slide" />
+              </div>
+              <div className="carousel-item">
+                <img class="d-block w-100" src="..." alt="Third slide" />
+              </div> */}
+            </div>
+          </div>
+          :
+          null
+        }
       </div>
     </div>
   )
