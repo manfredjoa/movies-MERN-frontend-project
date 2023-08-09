@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react"
+import ReactBootstrapCarousel from "react-bootstrap-carousel";
 import { updateMovie, deleteMovie } from "../services/movies.js"
 
 export default function Modal({ movie, setMovie, setToggle, closeModal, closeModalKeyDown }) {
   const [update, setUpdate] = useState(false)
+  const [stills, setStills] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
@@ -43,6 +45,11 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
 
   const handleBack = () => {
     setUpdate(false);
+  }
+
+  const handleStills = () => {
+    setStills(true);
+    console.log(stills)
   }
 
   return (
@@ -288,7 +295,8 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
               <p className="modal-text">{movie.Plot}</p>
             </span>
             <div className="modal-CRUD-buttons">
-              <button id="edit-button"onClick={handleUpdate}>EDIT</button> 
+              <button id="edit-button" onClick={handleUpdate}>EDIT</button> 
+              <button id="stills-button" onClick={handleStills}>STILLS</button>
               <button id="delete-button"onClick={handleDelete}>DELETE</button>
             </div>
           </div>
@@ -296,7 +304,12 @@ export default function Modal({ movie, setMovie, setToggle, closeModal, closeMod
 
         <button id="x" onClick={closeModal}>x</button>
 
+        {/* {stills
+          ? <p>this is working</p>
+          : <p>this is also working</p>
+        } */}
       </div>
     </div>
   )
 }
+
